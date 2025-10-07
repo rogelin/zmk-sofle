@@ -63,8 +63,6 @@
         label = "DT_QUOTE";
         #binding-cells = <0>;
         bindings = <&kp APOSTROPHE>, <&kp DOUBLE_QUOTES>;
-
-        tapping-term-ms = <100>;
     };
 
     dt_colon: dt_colon {
@@ -72,8 +70,6 @@
         label = "DT_COLON";
         #binding-cells = <0>;
         bindings = <&kp SEMI>, <&kp COLON>;
-
-        tapping-term-ms = <100>;
     };
 
     td_min_und: td_min_und {
@@ -81,15 +77,12 @@
         label = "TD_MIN_UND";
         #binding-cells = <0>;
         bindings = <&kp MINUS>, <&kp UNDERSCORE>;
-
-        tapping-term-ms = <100>;
     };
 
     td_eq_pls: td_eq_pls {
         compatible = "zmk,behavior-tap-dance";
         label = "TD_EQ_PLS";
         #binding-cells = <0>;
-        tapping-term-ms = <100>;
         bindings = <&kp EQUAL>, <&kp PLUS>;
     };
 
@@ -107,6 +100,29 @@
         sys_reset {
             bindings = <&sys_reset>;
             key-positions = <0 39 12 51>;
+        };
+    };
+
+    macros {
+        tilde: tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE &kp SPACE>;
+            label = "TILDE";
+        };
+
+        dquote: dquote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DQT &kp SPACE>;
+            label = "DQUOTE";
+        };
+
+        squote: squote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SQT &kp SPACE>;
+            label = "SQUOTE";
         };
     };
 
