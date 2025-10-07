@@ -55,7 +55,7 @@
         compatible = "zmk,behavior-tap-dance";
         label = "TD_GRATIL";
         #binding-cells = <0>;
-        bindings = <&kp GRAVE>, <&kp TILDE>;
+        bindings = <&kp TILDE>, <&kp GRAVE>;
     };
 
     dt_quote: dt_quote {
@@ -74,6 +74,23 @@
         bindings = <&kp SEMI>, <&kp COLON>;
 
         tapping-term-ms = <100>;
+    };
+
+    td_min_und: td_min_und {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TD_MIN_UND";
+        #binding-cells = <0>;
+        bindings = <&kp MINUS>, <&kp UNDERSCORE>;
+
+        tapping-term-ms = <100>;
+    };
+
+    td_eq_pls: td_eq_pls {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TD_EQ_PLS";
+        #binding-cells = <0>;
+        tapping-term-ms = <100>;
+        bindings = <&kp EQUAL>, <&kp PLUS>;
     };
 
     behaviors {
@@ -98,11 +115,11 @@
 
         layer_0 {
             bindings = <
-&gresc            &kp N1     &kp N2        &kp N3        &kp N4     &kp N5    &kp UP_ARROW     &kp N6  &kp N7     &kp N8                &kp N9           &kp N0           &kp BACKSPACE
-&mt CAPSLOCK TAB  &kp Q      &kp W         &kp E         &kp R      &kp T     &kp DOWN_ARROW   &kp Y   &kp U      &kp I                 &kp O            &kp P            &kp BSLH
-&mo 1             &kp A      &kp S         &kp D         &kp F      &kp G     &kp LEFT_ARROW   &kp H   &kp J      &kp K                 &kp L            &dt_colon        &dt_quote
-&kp LSHFT         &kp Z      &kp X         &kp C         &kp V      &kp B     &kp RIGHT_ARROW  &kp N   &kp M      &kp COMMA             &kp DOT          &kp FSLH         &mt RIGHT_SHIFT ENTER
-&kp C_MUTE        &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE  &mo 1     &kp ENTER        &mo 2   &kp SPACE  &mt RIGHT_GUI DELETE  &lt 1 RIGHT_ALT  &kp RIGHT_SHIFT
+&gresc      &kp N1     &kp N2        &kp N3        &kp N4       &kp N5         &kp UP_ARROW     &kp N6       &kp N7       &kp N8               &kp N9       &kp N0           &kp BACKSPACE
+&kp TAB     &kp Q      &kp W         &kp E         &kp R        &kp T          &kp DOWN_ARROW   &kp Y        &kp U        &kp I                &kp O        &kp P            &kp BSLH
+&mo 1       &kp A      &kp S         &kp D         &kp F        &kp G          &kp LEFT_ARROW   &kp H        &kp J        &kp K                &kp L        &dt_colon        &dt_quote
+&kp LSHFT   &kp Z      &kp X         &kp C         &kp V        &kp B          &kp RIGHT_ARROW  &kp N        &kp M        &kp COMMA            &kp DOT      &kp FSLH         &mt RIGHT_SHIFT ENTER
+&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &lt 1 SPACE  &lt 1 SPACE    &kp ENTER        &lt 2 SPACE  &lt 1 SPACE  &mt RIGHT_GUI SPACE  &lt 1 SPACE  &kp RIGHT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -111,11 +128,11 @@
 
         layer_1 {
             bindings = <
-&td_gratil  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &mmv MOVE_UP     &kp F6    &kp F7    &kp F8        &mt F11 F9   &mt F12 F10       &kp BACKSPACE
-&trans      &trans  &trans  &trans  &trans  &trans    &mmv MOVE_DOWN   &trans    &trans    &trans        &trans       &kp MINUS         &kp EQUAL
-&trans      &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT   &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-&trans      &trans  &trans  &trans  &trans  &trans    &mmv MOVE_RIGHT  &trans    &trans    &td_brckt_l   &td_brckt_r  &trans            &trans
-&kp C_MUTE  &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans    &trans    &trans        &trans       &trans
+&td_gratil    &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &mmv MOVE_UP     &kp F6    &kp F7    &kp F8        &mt F11 F9   &mt F12 F10       &kp DELETE
+&kp CAPSLOCK  &trans  &trans  &trans  &trans  &trans    &mmv MOVE_DOWN   &trans    &trans    &trans        &trans       &td_min_und       &td_eq_pls
+&trans        &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT   &kp LEFT  &kp DOWN  &kp UP_ARROW  &kp RIGHT    &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+&trans        &trans  &trans  &trans  &trans  &trans    &mmv MOVE_RIGHT  &trans    &trans    &td_brckt_l   &td_brckt_r  &trans            &trans
+&kp C_MUTE    &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans    &trans    &trans        &trans       &trans
             >;
 
             display-name = "layer_1";
@@ -124,11 +141,11 @@
 
         layer_2 {
             bindings = <
-&td_gratil  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                      &rgb_ug RGB_SPI  &kp F6           &kp F7  &kp F8  &kp F9  &kp F10      &trans
-&trans      &trans        &trans          &trans        &sys_reset    &trans                            &rgb_ug RGB_SPD  &kp C_VOLUME_UP  &trans  &trans  &trans  &kp UNDER    &kp PLUS
-&trans      &trans        &trans          &trans        &trans        &rgb_ug RGB_COLOR_HSB(0,0,100)    &rgb_ug RGB_EFR  &kp K_MUTE       &trans  &trans  &trans  &kp LBRC     &kp RBRC
-&trans      &trans        &bt BT_CLR_ALL  &bt BT_CLR    &trans        &rgb_ug RGB_TOG                   &rgb_ug RGB_EFF  &kp C_VOL_DN     &trans  &trans  &trans  &bootloader  &trans
-&trans      &trans        &trans          &trans        &trans        &trans                            &bl BL_TOG       &trans           &trans  &trans  &trans  &trans
+&td_gratil  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                      &rgb_ug RGB_SPI  &kp C_BRIGHTNESS_DEC  &kp C_BRI_UP  &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans
+&trans      &trans        &trans          &trans        &sys_reset    &trans                            &rgb_ug RGB_SPD  &trans                &trans        &trans      &trans             &kp UNDER        &kp PLUS
+&trans      &trans        &trans          &trans        &trans        &rgb_ug RGB_COLOR_HSB(0,0,100)    &rgb_ug RGB_EFR  &kp LEFT              &kp DOWN      &kp UP      &kp RIGHT          &kp LBRC         &kp RBRC
+&trans      &trans        &bt BT_CLR_ALL  &bt BT_CLR    &trans        &rgb_ug RGB_TOG                   &rgb_ug RGB_EFF  &trans                &trans        &trans      &trans             &bootloader      &trans
+&trans      &trans        &trans          &trans        &trans        &trans                            &bl BL_TOG       &trans                &trans        &trans      &trans             &trans
             >;
 
             display-name = "layer_2";
