@@ -28,6 +28,8 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&lt { flavor = "tap-unless-interrupted"; };
+
 / {
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
