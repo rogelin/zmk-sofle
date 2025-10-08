@@ -28,6 +28,10 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&lt { flavor = "balanced"; };
+
+&mt { flavor = "balanced"; };
+
 / {
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
@@ -69,15 +73,15 @@
 
         layer0 {
             bindings = <
-&gresc      &kp N1     &kp N2        &kp N3        &kp N4     &kp N5    &kp UP_ARROW     &kp N6  &kp N7     &kp N8           &kp N9   &kp N0           &kp BACKSPACE
-&kp TAB     &kp Q      &kp W         &kp E         &kp R      &kp T     &kp DOWN_ARROW   &kp Y   &kp U      &kp I            &kp O    &kp P            &kp BSLH
-&mo 1       &kp A      &kp S         &kp D         &kp F      &kp G     &kp LEFT_ARROW   &kp H   &kp J      &kp K            &kp L    &kp SEMI         &kp APOS
-&kp LSHFT   &kp Z      &kp X         &kp C         &kp V      &kp B     &kp RIGHT_ARROW  &kp N   &kp M      &kp COMMA        &kp DOT  &kp FSLH         &kp ENTER
-&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE  &mo 1     &kp ENTER        &mo 2   &kp SPACE  &lt 1 RIGHT_GUI  &mo 1    &kp RIGHT_SHIFT
+&gresc      &kp N1     &kp N2        &kp N3        &kp N4     &kp N5    &kp UP_ARROW     &kp N6  &kp N7     &kp N8           &kp N9       &kp N0           &kp BACKSPACE
+&kp TAB     &kp Q      &kp W         &kp E         &kp R      &kp T     &kp DOWN_ARROW   &kp Y   &kp U      &kp I            &kp O        &kp P            &kp BSLH
+&mo 1       &kp A      &kp S         &kp D         &kp F      &kp G     &kp LEFT_ARROW   &kp H   &kp J      &kp K            &kp L        &kp SEMI         &kp APOS
+&kp LSHFT   &kp Z      &kp X         &kp C         &kp V      &kp B     &kp RIGHT_ARROW  &kp N   &kp M      &kp COMMA        &kp DOT      &kp FSLH         &mt RIGHT_SHIFT ENTER
+&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &kp SPACE  &mo 1     &kp ENTER        &mo 2   &kp SPACE  &lt 1 RIGHT_GUI  &lt 1 SPACE  &kp RIGHT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "([0] 1  2 ) ";
+            display-name = "-_0_x_x_-";
         };
 
         layer1 {
@@ -89,20 +93,20 @@
 &kp C_MUTE  &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans          &trans          &trans        &trans           &trans
             >;
 
-            display-name = "( 0 [1] 2 )";
+            display-name = "-_x_1_x_-";
             sensor-bindings = <&scroll_encoder>;
         };
 
         layer2 {
             bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &rgb_ug RGB_SPI  &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &rgb_ug RGB_SPD  &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &rgb_ug RGB_EFR  &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &rgb_ug RGB_EFF  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans        &trans          &trans        &trans        &trans          &rgb_ug RGB_TOG  &trans  &trans  &trans      &trans     &trans
+&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                         &rgb_ug RGB_SPI  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp K_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &trans
+&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans                               &rgb_ug RGB_SPD  &none                 &none                 &none       &none         &kp UNDER     &kp PLUS
+&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &rgb_ug RGB_COLOR_HSB(116,100,50)    &rgb_ug RGB_EFR  &kp LEFT              &kp DOWN              &kp UP      &kp RIGHT     &kp LBRC      &kp RBRC
+&trans     &sys_reset    &trans          &bootloader   &trans        &rgb_ug RGB_COLOR_HSB(0,0,59)        &rgb_ug RGB_EFF  &none                 &none                 &none       &none         &none         &trans
+&trans     &trans        &trans          &trans        &trans        &trans                               &rgb_ug RGB_TOG  &trans                &trans                &trans      &trans        &trans
             >;
 
-            display-name = "( 0  1  [2])";
+            display-name = "-_x_x_2_-";
             sensor-bindings = <&scroll_encoder>;
         };
 
