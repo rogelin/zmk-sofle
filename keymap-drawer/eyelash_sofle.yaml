@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: eyelash_sofle}
 layers:
-  -_0_x_x_-:
+  BASE:
   - {t: '$$mdi:keyboard-esc$$', s: '`'}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
@@ -27,7 +27,7 @@ layers:
   - O
   - P
   - {t: \, s: '|'}
-  - -_x_1_x_-
+  - LOWER
   - A
   - S
   - D
@@ -58,14 +58,14 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:keyboard-space$$
-  - -_x_1_x_-
+  - LOWER
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - -_x_x_2_-
+  - RAISE
   - $$mdi:keyboard-space$$
-  - {t: RIGHT GUI, h: -_x_1_x_-}
-  - {t: '$$mdi:keyboard-space$$', h: -_x_1_x_-}
+  - {t: RIGHT GUI, h: LOWER}
+  - {t: '$$mdi:keyboard-space$$', h: LOWER}
   - $$mdi:apple-keyboard-shift$$
-  -_x_1_x_-:
+  LOWER:
   - {t: '`', s: '~'}
   - F1
   - F2
@@ -130,7 +130,7 @@ layers:
   - {type: held alternate}
   - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
-  -_x_x_2_-:
+  RAISE:
   - '~'
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
@@ -149,7 +149,7 @@ layers:
   - BT CLR ALL
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - RGB COLOR HSB(0,0,100)
   - RGB SPD
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -329,7 +329,7 @@ combos:
 - p: [14, 28, 40]
   k: '&soft_off'
 - p: [56, 57]
-  k: -_x_x_2_-
+  k: RAISE
 - p: [14, 40, 18, 44]
   k: {t: '$$mdi:backup-restore$$', type: bootloader}
 - p: [20, 46, 24, 50]
