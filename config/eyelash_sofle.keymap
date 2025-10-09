@@ -28,9 +28,7 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
-&lt { flavor = "balanced"; };
-
-&mt { flavor = "balanced"; };
+&lt { flavor = "hold-preferred"; };
 
 / {
     scroll_encoder: scroll_encoder {
@@ -81,7 +79,7 @@
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "-_0_x_x_-";
+            display-name = "BASE";
         };
 
         layer1 {
@@ -93,20 +91,20 @@
 &kp C_MUTE  &trans  &trans  &trans  &trans  &trans    &mkp LCLK        &trans          &trans          &trans        &trans           &trans
             >;
 
-            display-name = "-_x_1_x_-";
+            display-name = "LOWER";
             sensor-bindings = <&scroll_encoder>;
         };
 
         layer2 {
             bindings = <
 &kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                         &rgb_ug RGB_SPI  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp K_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans                               &rgb_ug RGB_SPD  &none                 &none                 &none       &none         &kp UNDER     &kp PLUS
+&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &rgb_ug RGB_COLOR_HSB(0,0,100)       &rgb_ug RGB_SPD  &none                 &none                 &none       &none         &kp UNDER     &kp PLUS
 &trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &rgb_ug RGB_COLOR_HSB(116,100,50)    &rgb_ug RGB_EFR  &kp LEFT              &kp DOWN              &kp UP      &kp RIGHT     &kp LBRC      &kp RBRC
 &trans     &sys_reset    &trans          &bootloader   &trans        &rgb_ug RGB_COLOR_HSB(0,0,59)        &rgb_ug RGB_EFF  &none                 &none                 &none       &none         &none         &trans
 &trans     &trans        &trans          &trans        &trans        &trans                               &rgb_ug RGB_TOG  &trans                &trans                &trans      &trans        &trans
             >;
 
-            display-name = "-_x_x_2_-";
+            display-name = "RAISE";
             sensor-bindings = <&scroll_encoder>;
         };
 
